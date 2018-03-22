@@ -1,0 +1,32 @@
+{
+  "current_context": "Docker",
+  "command_variations": {
+    "docker": [
+      "docker",
+      "d"
+    ],
+    "kube": [
+      "kubernetes",
+      "k",
+      "kube",
+      "k8",
+      "kubectl"
+    ]
+  },
+  "local_info": {
+    "run": {
+      "location": "/Users/jameswallis/Documents/GitHub/microclimate",
+      "command": "run.sh"
+    },
+    "stop": {
+      "location": "/Users/jameswallis/Documents/GitHub/microclimate",
+      "command": "stop.sh"
+    }
+  },
+  "valid_prefixes": [
+    "microclimate",
+    "mc-",
+    "mcholiday"
+  ],
+  "web_page_url": "https://microclimate-dev2ops.github.io/"
+}
