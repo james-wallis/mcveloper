@@ -1,6 +1,17 @@
 # mcveloper
 CLI to reduce the amount of kubectl exec and docker logs I have to do
 
+## Installation
+```
+npm install -g https://github.com/jamesemwallis/mcveloper  
+```
+or 
+```
+https://github.com/jamesemwallis/mcveloper.git && \
+cd mcveloper && \
+npm install -g
+```
+
 ## Problem
 
 Currently working on a project day-to-day which requires typing the same `kubectl` and `docker` commands with minimal variation.
