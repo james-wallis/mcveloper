@@ -35,10 +35,13 @@ module.exports.unauthorized = function unauthorized() {
 
 module.exports.getRunCommand = function getRunCommand(callback) {
   if (data.current_context == 'Docker') {
-    let command = `${data.local_info.run.location}/${data.local_info.run.command}`;
-    callback(command)
+    if (fs.existsSync(data.local_info.run.location)) {
+      callback(data.local_info.run.location, data.local_info.run.command);
+    } else {
+      console.log('\nThe location of your run script does not exist.\nUpdate it in the \'data.json\' file.\n');
+    }
   } else if (data.current_context == 'K8') {
-    console.log('\nError:\nYou are not authorized to use this Kubernetes cluster.\nUse the ICP dashboard to configure your client before continuing.\n');
+    console.log('\nError:\nNo run location or command for K8.\n');
   } else {
     console.error(new Error('Unknown context'));
   }
@@ -46,10 +49,13 @@ module.exports.getRunCommand = function getRunCommand(callback) {
 
 module.exports.getStopCommand = function getStopCommand(callback) {
   if (data.current_context == 'Docker') {
-    let command = `${data.local_info.stop.location}/${data.local_info.stop.command}`;
-    callback(command);
+    if (fs.existsSync(data.local_info.stop.location)) {
+      callback(data.local_info.stop.location, data.local_info.stop.command);
+    } else {
+      console.log('\nThe location of your run script does not exist.\nUpdate it in the \'data.json\' file.\n');
+    }
   } else if (data.current_context == 'K8') {
-    console.log('\nError:\nYou are not authorized to use this Kubernetes cluster.\nUse the ICP dashboard to configure your client before continuing.\n');
+    console.log('\nError:\nNo stop location or command for K8.\n');
   } else {
     console.error(new Error('Unknown context'));
   }

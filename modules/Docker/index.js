@@ -176,8 +176,8 @@ module.exports.ps = function ps(opts) {
  */
 module.exports.run = function run(opts) {
   let exec = require('child_process').exec;
-  utils.getRunCommand(function(command) {
-    let run = exec(command);
+  utils.getRunCommand(function(location, command) {
+    let run = exec(command, { cwd: location });
     run.stdout.on('data', function(data) {
         process.stdout.write(data);
     });
@@ -192,8 +192,8 @@ module.exports.run = function run(opts) {
  */
 module.exports.stop = function stop(opts) {
   let exec = require('child_process').exec;
-  utils.getStopCommand(function(command) {
-    let stop = exec(command);
+  utils.getStopCommand(function(location, command) {
+    let stop = exec(command, { cwd: location });
     stop.stdout.on('data', function(data) {
         process.stdout.write(data);
     });
