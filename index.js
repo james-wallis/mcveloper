@@ -1,10 +1,6 @@
 #!/usr/bin/env node --harmony
-const program = require('commander');
-const package = require('./package.json');
-const dataFile = __dirname + '/data.json';
-const openInBrowser = require('open');
 const fs = require('fs-extra');
-const utils = require(__dirname + '/modules/utils.js');
+const dataFile = __dirname + '/data.json';
 
 // Check that data.json exists, if not copy and rename the template
 if (!fs.existsSync(dataFile)) {
@@ -16,6 +12,10 @@ if (!fs.existsSync(dataFile)) {
     }
   });
 } else {
+  const program = require('commander');
+  const package = require('./package.json');
+  const openInBrowser = require('open');
+  const utils = require(__dirname + '/modules/utils.js');
   const data = require(__dirname + '/data.json');
   // Variables for the api and api tools
   var api = '';
