@@ -38,13 +38,19 @@ module.exports.getRunCommand = function getRunCommand(callback) {
     if (fs.existsSync(data.local_info.run.location)) {
       callback(data.local_info.run.location, data.local_info.run.command);
     } else {
-      console.log('\nThe location of your run script does not exist.\nUpdate it in the \'data.json\' file.\n');
+      console.log('\nThe location of your run script does not exist.');
+      console.log('Update it by doing one of the following:\n');
+      console.log('  * running \'mcveloper set-run-location\'');
+      console.log('  * changing the value in the \'data.json\' file\n');
     }
   } else if (data.current_context == 'K8') {
     if (fs.existsSync(data.kube_info.run.location)) {
       callback(data.kube_info.run.location, data.kube_info.run.command);
     } else {
-      console.log('\nThe location of your run script does not exist.\nUpdate it in the \'data.json\' file.\n');
+      console.log('\nThe location of your run script does not exist.');
+      console.log('Update it by doing one of the following:\n');
+      console.log('  * running \'mcveloper set-run-location\'');
+      console.log('  * changing the value in the \'data.json\' file\n');
     }
   } else {
     console.error(new Error('Unknown context'));
@@ -56,13 +62,19 @@ module.exports.getStopCommand = function getStopCommand(callback) {
     if (fs.existsSync(data.local_info.stop.location)) {
       callback(data.local_info.stop.location, data.local_info.stop.command);
     } else {
-      console.log('\nThe location of your stop script does not exist.\nUpdate it in the \'data.json\' file.\n');
+      console.log('\nThe location of your stop script does not exist.');
+      console.log('Update it by doing one of the following:\n');
+      console.log('  * running \'mcveloper set-stop-location\'');
+      console.log('  * changing the value in the \'data.json\' file\n');
     }
   } else if (data.current_context == 'K8') {
     if (fs.existsSync(data.kube_info.stop.location)) {
       callback(data.kube_info.stop.location, data.kube_info.stop.command);
     } else {
-      console.log('\nThe location of your stop script does not exist.\nUpdate it in the \'data.json\' file.\n');
+      console.log('\nThe location of your stop script does not exist.');
+      console.log('Update it by doing one of the following:\n');
+      console.log('  * running \'mcveloper set-stop-location\'');
+      console.log('  * changing the value in the \'data.json\' file\n');
     }
   } else {
     console.error(new Error('Unknown context'));

@@ -1,0 +1,42 @@
+{
+  "current_context": "Docker",
+  "command_variations": {
+    "docker": [
+      "docker",
+      "d"
+    ],
+    "kube": [
+      "kubernetes",
+      "k",
+      "kube",
+      "k8",
+      "kubectl"
+    ]
+  },
+  "local_info": {
+    "run": {
+      "location": "",
+      "command": "./run.sh"
+    },
+    "stop": {
+      "location": "",
+      "command": "./stop.sh"
+    }
+  },
+  "kube_info": {
+    "run": {
+      "location": "",
+      "command": "helm install --name microclimate stable/ibm-microclimate"
+    },
+    "stop": {
+      "location": "",
+      "command": "helm delete microclimate --purge"
+    }
+  },
+  "valid_prefixes": [
+    "microclimate",
+    "mc-",
+    "mcholiday"
+  ],
+  "web_page_url": "https://microclimate-dev2ops.github.io/"
+}
