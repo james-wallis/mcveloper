@@ -30,6 +30,7 @@
     "commander": "^2.15.0",
     "console.table": "^0.10.0",
     "dockerode": "^2.5.4",
+    "fs-extra": "^5.0.0",
     "kubernetes-client": "^5.1.0",
     "open": "0.0.5"
   }
