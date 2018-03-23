@@ -41,7 +41,11 @@ module.exports.getRunCommand = function getRunCommand(callback) {
       console.log('\nThe location of your run script does not exist.\nUpdate it in the \'data.json\' file.\n');
     }
   } else if (data.current_context == 'K8') {
-    console.log('\nError:\nNo run location or command for K8.\n');
+    if (fs.existsSync(data.kube_info.run.location)) {
+      callback(data.kube_info.run.location, data.kube_info.run.command);
+    } else {
+      console.log('\nThe location of your run script does not exist.\nUpdate it in the \'data.json\' file.\n');
+    }
   } else {
     console.error(new Error('Unknown context'));
   }
@@ -52,10 +56,14 @@ module.exports.getStopCommand = function getStopCommand(callback) {
     if (fs.existsSync(data.local_info.stop.location)) {
       callback(data.local_info.stop.location, data.local_info.stop.command);
     } else {
-      console.log('\nThe location of your run script does not exist.\nUpdate it in the \'data.json\' file.\n');
+      console.log('\nThe location of your stop script does not exist.\nUpdate it in the \'data.json\' file.\n');
     }
   } else if (data.current_context == 'K8') {
-    console.log('\nError:\nNo stop location or command for K8.\n');
+    if (fs.existsSync(data.kube_info.stop.location)) {
+      callback(data.kube_info.stop.location, data.kube_info.stop.command);
+    } else {
+      console.log('\nThe location of your stop script does not exist.\nUpdate it in the \'data.json\' file.\n');
+    }
   } else {
     console.error(new Error('Unknown context'));
   }

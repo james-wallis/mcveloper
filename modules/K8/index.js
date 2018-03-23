@@ -173,24 +173,34 @@ module.exports.ps = async function ps(opts) {
  * Function to call the run script to start the ICP Microclimate (dev run)
  */
 module.exports.run = function run(opts) {
-  console.log('\nNo run command for the K8 context yet.\n');
+  let exec = require('child_process').exec;
+  utils.getRunCommand(function(location, command) {
+    console.log('Starting Microclimate using: ' + command);
+    let run = exec(command, { cwd: location });
+    run.stdout.on('data', function(data) {
+        process.stdout.write(data);
+    });
+    run.stderr.on('data', function(data) {
+        process.stdout.write(data);
+    });
+  });
 }
 
 /**
  * Function to call the stop script to start the ICP Microclimate (dev stop)
  */
 module.exports.stop = function stop(opts) {
-  console.log('\nNo stop command for the K8 context yet.\n');
-  // let exec = require('child_process').exec;
-  // utils.getStopCommand(function(command) {
-  //   let stop = exec(command);
-  //   stop.stdout.on('data', function(data) {
-  //       process.stdout.write(data);
-  //   });
-  //   stop.stderr.on('data', function(data) {
-  //       process.stdout.write(data);
-  //   });
-  // });
+  let exec = require('child_process').exec;
+  utils.getStopCommand(function(location, command) {
+    console.log('Stopping Microclimate using: ' + command);
+    let stop = exec(command, { cwd: location });
+    stop.stdout.on('data', function(data) {
+        process.stdout.write(data);
+    });
+    stop.stderr.on('data', function(data) {
+        process.stdout.write(data);
+    });
+  });
 }
 
 /**

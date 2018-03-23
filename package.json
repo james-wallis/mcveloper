@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "microclimate": "./index.js",
+    "mcveloper": "./index.js",
+    "mcvel": "./index.js",
     "m": "./index.js"
   },
   "repository": {

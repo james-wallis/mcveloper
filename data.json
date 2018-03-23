@@ -1,5 +1,5 @@
 {
-  "current_context": "Docker",
+  "current_context": "K8",
   "command_variations": {
     "docker": [
       "docker",
@@ -21,6 +21,16 @@
     "stop": {
       "location": "/Users/jameswallis/Documents/GitHub/microclimate",
       "command": "./stop.sh"
+    }
+  },
+  "kube_info": {
+    "run": {
+      "location": "/Users/jameswallis/Documents/GitHub/microclimate-icp",
+      "command": "helm install --name microclimate stable/ibm-microclimate"
+    },
+    "stop": {
+      "location": "/Users/jameswallis/Documents/GitHub/microclimate-icp",
+      "command": "helm delete microclimate --purge"
     }
   },
   "valid_prefixes": [
