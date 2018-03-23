@@ -162,7 +162,7 @@ if (!fs.existsSync(dataFile)) {
 
   program
     .command('get-run')
-    .alias('R')
+    .alias('RG')
     .description('Get the run command and location for the current context')
     .action(function() {
       utils.getRunCommand(function(location, command) {
@@ -209,6 +209,17 @@ if (!fs.existsSync(dataFile)) {
           console.log('K8 run location changed to: ' + data.kube_info.run.location);
         });
       }
+    });
+
+  program
+    .command('get-stop')
+    .alias('SG')
+    .description('Get the stop command and location for the current context')
+    .action(function() {
+      utils.getStopCommand(function(location, command) {
+        console.log(`\nStop command for ${data.current_context}: '${command}'`);
+        console.log(`Stop location for ${data.current_context}: '${location}'\n`);
+      });
     });
 
   program
