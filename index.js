@@ -1,6 +1,7 @@
 #!/usr/bin/env node --harmony
 const fs = require('fs-extra');
 const dataFile = __dirname + '/data.json';
+console.log(dataFile);
 
 // Check that data.json exists, if not copy and rename the template
 if (!fs.existsSync(dataFile)) {
