@@ -1,12 +1,11 @@
 #!/usr/bin/env node --harmony
 const fs = require('fs-extra');
 const dataFile = __dirname + '/data.json';
-console.log(dataFile);
-
 // Check that data.json exists, if not copy and rename the template
 if (!fs.existsSync(dataFile)) {
   fs.copy('./data.json.template', dataFile, err => {
     if (err) {
+      console.log(dataFile);
       console.error('Error, data.json could not be copied.\nProbably best to let James know...');
     } else {
       console.log('data.json has been created.\nRun mcveloper again to use it.');
