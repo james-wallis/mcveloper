@@ -24,6 +24,7 @@ This CLI takes the commands I need and in some places shortens what I need to ty
 
 ## Features
 
+* `m help` - Show the help.
 * `m exec` - `docker exec -it` and `kubectl exec -it`, takes the container name and defaults the command to `/bin/bash`.
 * `m images` - `docker images`, shows only microclimate related Docker images. No kubectl version. 
 * `m logs` - `docker logs -f` and `kubectl logs -f`, prints and follows the log of a given container.
@@ -31,3 +32,12 @@ This CLI takes the commands I need and in some places shortens what I need to ty
 * `m run` - Run a developer run script, user has to set this.
 * `m stop` - Run a developer stop script, user has to set this.
 * `m open` - Open mc in the browser, simple in Docker, clever in Kubernetes.
+* `m open-webpage` - Open the mc landing page.
+* `m get-context` - Get the current context for mcveloper (Docker or K8).
+* `m set-context` - Set a new context for mcveloper (Docker or K8).
+* `m get-run` - Get the run command for the current context.
+* `m set-run-command` - Set a new run command for the current context.
+* `m set-run-location` - Set a new run location for the current context.
+* `m get-stop` - Get the stop command for the current context.
+* `m set-stop-command` - Set a new stop command for the current context.
+* `m set-stop-location` - Set a new stop location for the current context.
